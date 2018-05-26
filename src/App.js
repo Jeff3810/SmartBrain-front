@@ -77,17 +77,16 @@ class App extends Component {
 
   onSubmit = () => {
     this.setState({imageUrl: this.state.input})
-         fetch('http://localhost:3000/imageurl', {
+         fetch('https://peaceful-ridge-79285.herokuapp.com/imageurl', {
             method: 'post',
              headers: {'content-type': 'application/json'},
               body: JSON.stringify({
               input: this.state.input
             })
-          })
-       .then(response => response.json()) 
+          }).then(response => response.json()) 
        .then(response => {
           if (response) {
-            fetch('http://localhost:3000/image', {
+            fetch('https://peaceful-ridge-79285.herokuapp.com/image', {
             method: 'put',
              headers: {'content-type': 'application/json'},
               body: JSON.stringify({
